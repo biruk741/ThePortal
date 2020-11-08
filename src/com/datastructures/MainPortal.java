@@ -27,7 +27,7 @@ public class MainPortal {
     private static User signIn() {
         print("Please enter your username: ");
         String entered = scanner.next();
-        if(login.userExists(entered))
+        if(login.userExists(entered));
     }
 
     public static void print(String s){
