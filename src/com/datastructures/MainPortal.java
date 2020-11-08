@@ -1,6 +1,7 @@
 package com.datastructures;
 
 import com.datastructures.Objects.User;
+import org.junit.jupiter.api.DynamicTest;
 
 import java.util.Scanner;
 
@@ -11,14 +12,13 @@ public class MainPortal {
 
     public static void main(String[] args) {
         user = signIn();
-//fjjyf
     }
 
 
     private static User getUser(){
         print("1. Login\n2. Signup\n3Exit");
         return switch (scanner.next()){
-            case "1" -> "Mya hartman was here,"
+            case "1" -> {}
             case "2" -> {}
             default -> null;
         };
