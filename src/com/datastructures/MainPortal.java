@@ -11,7 +11,9 @@ public class MainPortal {
 
     public static void main(String[] args) {
         user = getUser();
-        print("Currently logged in as " + user.getUsername() + ".");
+        if(user == null) return;
+
+        print("Currently logged in as " + user.getUsername() + " (" + user.getType().toString() + ")");
     }
 
     private static User getUser() {
@@ -43,9 +45,9 @@ public class MainPortal {
     private static String requestData(String type){
         return switch (type.toLowerCase()){
             case "password","username" -> {
-                print("Please enter your " + type + ".");
+                print("Please enter your " + type + ":");
                 String input = scanner.next();
-                if(input.length() == 0){
+                if(input.length() < 5){
                     print("The" + type + " you entered is too short.");
                     yield requestData(type);
                 }
@@ -56,7 +58,10 @@ public class MainPortal {
                 String input = scanner.next().toLowerCase();
                 yield switch (input){
                     case "student","teacher","parent" -> input;
-                    default -> requestData(type);
+                    default -> {
+                        print("You have to choose from the listed options.");
+                        yield requestData(type);
+                    }
                 };
             }
             default -> "";
