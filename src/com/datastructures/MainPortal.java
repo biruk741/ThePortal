@@ -24,6 +24,8 @@ public class MainPortal {
         };
     }
 
+    // elena
+
     private static User signIn() {
         print("Please enter your username: ");
         String entered = scanner.next();
