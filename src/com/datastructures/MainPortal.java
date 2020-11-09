@@ -63,6 +63,8 @@ public class MainPortal {
         };
     }
 
+    // elena
+
     private static User signIn() {
         String username = requestData("username");
         if (!login.userExists(username)) {
