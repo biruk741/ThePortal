@@ -1,5 +1,9 @@
 package com.datastructures;
 
+import com.datastructures.Objects.User;
+import org.junit.jupiter.api.Test;
+
+import java.lang.reflect.Type;
 import java.security.InvalidParameterException;
 
 /**
@@ -106,6 +110,9 @@ public class SortedArrayDictionary<K extends Comparable<? super K>, V>
      */
     public boolean contains(K key) {
         int index = getIndex(key);
-        return index < numberOfEntries && key.equals(entries[index].getKey());
+        return index < numberOfEntries &&
+                ((String) key).toLowerCase().equals(
+                        ((String) entries[index].getKey()).toLowerCase()
+                );
     }
 }

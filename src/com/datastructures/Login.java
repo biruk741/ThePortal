@@ -42,7 +42,6 @@ public class Login {
 
     /**
      * This method saves the contents of the phonebook to the file
-     * @param dictionary: the phonebook that we are saving.
      */
     private void saveFile() {
         try {
@@ -58,7 +57,7 @@ public class Login {
     This method adds a given phone number to a given contact, then saves it.
      */
     public boolean signUp(User user) {
-        if (userRecords.contains(user.getUsername())) {
+        if (userExists(user.getUsername())) {
             return false;
         } else userRecords.add(user.getUsername(),user);
         saveFile();
@@ -86,9 +85,13 @@ public class Login {
         return s;
     }
 
-    public boolean login(String username, String password) {
+    public boolean isValid(String username, String password) {
         User user = userRecords.getValue(username);
         return password.equals(user.getPassword());
+    }
+
+    public User getUser(String username){
+        return userRecords.getValue(username);
     }
 
     /**
