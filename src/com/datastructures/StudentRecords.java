@@ -9,4 +9,6 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class StudentRecords {
+    // Able to add,edit remove students grades
+    // Viewing grades
 }

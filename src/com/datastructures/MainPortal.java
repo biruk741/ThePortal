@@ -9,6 +9,9 @@ public class MainPortal {
     private static final LoginManager LOGIN_MANAGER = new LoginManager();
     public static final Scanner scanner = new Scanner(System.in);
 
+    // This will probably be the biggest class since it will have different levels of access
+    // Gives some types of users some information while giving other users other types of info
+
     public static void main(String[] args) {
         user = getUser();
         if(user == null) return;
