@@ -42,6 +42,7 @@ public class MainPortal {
         return login.getUser(username);
     }
 
+    //
     private static String requestData(String type){
         return switch (type.toLowerCase()){
             case "password","username" -> {
