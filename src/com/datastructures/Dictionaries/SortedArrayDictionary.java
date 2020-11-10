@@ -1,9 +1,7 @@
-package com.datastructures;
+package com.datastructures.Dictionaries;
 
-import com.datastructures.Objects.User;
-import org.junit.jupiter.api.Test;
+import com.datastructures.DictionaryInterface;
 
-import java.lang.reflect.Type;
 import java.security.InvalidParameterException;
 
 /**

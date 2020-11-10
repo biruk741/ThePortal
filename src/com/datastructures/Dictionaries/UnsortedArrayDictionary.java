@@ -1,4 +1,6 @@
-package com.datastructures;
+package com.datastructures.Dictionaries;
+
+import com.datastructures.DictionaryInterface;
 
 import java.util.Arrays;
 import java.util.Iterator;

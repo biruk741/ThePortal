@@ -1,5 +1,6 @@
 package com.datastructures;
 
+import com.datastructures.Dictionaries.SortedArrayDictionary;
 import com.datastructures.Objects.User;
 
 import java.io.File;
@@ -41,7 +42,7 @@ public class LoginManager {
     }
 
     /**
-     * This method saves the contents of the user to the record file
+     * This method saves the contents of the user record to the record file
      */
     private void saveFile() {
         try {
@@ -53,9 +54,6 @@ public class LoginManager {
         }
     }
 
-    /*
-    This method adds a given phone number to a given contact, then saves it.
-     */
     public boolean signUp(User user) {
         if (userExists(user.getUsername())) {
             return false;
@@ -95,7 +93,7 @@ public class LoginManager {
     }
 
     /**
-     * Gets the given phonebook in the form of a string that we can then print out.
+     * Gets the user records in the form of a string
      * @return the string
      */
     @Override
