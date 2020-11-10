@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class Login {
+public class LoginManager {
     public final DictionaryInterface<String, User> userRecords;
     public static final String fileName = "user_records.txt";
     private static Scanner data;
     public static final String n = "\n";
 
 
-    public Login() {
+    public LoginManager() {
         userRecords = new SortedArrayDictionary<>();
         File file = new File(fileName);
         try {
@@ -41,7 +41,7 @@ public class Login {
     }
 
     /**
-     * This method saves the contents of the phonebook to the file
+     * This method saves the contents of the user to the record file
      */
     private void saveFile() {
         try {

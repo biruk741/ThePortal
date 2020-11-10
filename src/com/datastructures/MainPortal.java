@@ -6,14 +6,14 @@ import java.util.Scanner;
 
 public class MainPortal {
     static User user;
-    private static final Login login = new Login();
+    private static final LoginManager LOGIN_MANAGER = new LoginManager();
     public static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         user = getUser();
         if(user == null) return;
 
-        print("Currently logged in as " + user.getUsername() + " (" + user.getType().toString() + ")");
+        print("Currently logged in as " + user.getUsername() + " (" + user.getType() + ")");
     }
 
     private static User getUser() {
@@ -32,14 +32,14 @@ public class MainPortal {
     private static User signUp() {
         String type = requestData("type");
         String username = requestData("username");
-        if (login.userExists(username)) {
+        if (LOGIN_MANAGER.userExists(username)) {
             print("This username has already been taken. Please try another one.");
             return signUp();
         }
         String password = requestData("password");
         User user = new User(username,password,type);
-        login.signUp(user);
-        return login.getUser(username);
+        LOGIN_MANAGER.signUp(user);
+        return LOGIN_MANAGER.getUser(username);
     }
 
     //
@@ -73,16 +73,16 @@ public class MainPortal {
 
     private static User signIn() {
         String username = requestData("username");
-        if (!login.userExists(username)) {
+        if (!LOGIN_MANAGER.userExists(username)) {
             print("User does not exist.");
             return signIn();
         }
         String password = requestData("password");
-        if(!login.isValid(username,password)){
+        if(!LOGIN_MANAGER.isValid(username,password)){
             print("Incorrect password. Please try again.");
             return signIn();
         }
-        return login.getUser(username);
+        return LOGIN_MANAGER.getUser(username);
     }
 
     public static void print(String s) {
