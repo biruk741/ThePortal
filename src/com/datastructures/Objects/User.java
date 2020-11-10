@@ -7,7 +7,7 @@ public class User {
 
         private final String value;
 
-        private Type(String value) {
+        Type(String value) {
             this.value = value;
         }
 
