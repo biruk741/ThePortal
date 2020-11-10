@@ -17,6 +17,16 @@ public class MainPortal {
         if(user == null) return;
 
         print("Currently logged in as " + user.getUsername() + " (" + user.getType() + ")");
+
+        if(user.getType() == User.Type.STUDENT){ // if user is a student
+            // Mya will work on this
+        }
+        else if(user.getType() == User.Type.TEACHER){ // if user is a teacher
+            // Elena will work on this
+        }
+        else { // if user is a parent
+            // Biruk will work on this
+        }
     }
 
     private static User getUser() {
