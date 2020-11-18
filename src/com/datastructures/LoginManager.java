@@ -95,6 +95,7 @@ public class LoginManager {
     public User getUser(String username) {
         return userRecords.getValue(username);
     }
+
     public ArrayList<User> getChildren(String parentUsername){
         ArrayList<User> children = new ArrayList<>();
         Iterator<User> childrenIterator = userRecords.getValueIterator();
@@ -105,6 +106,16 @@ public class LoginManager {
                 children.add(currentChild);
         }
         return children;
+    }
+    public ArrayList<User> getParents(){
+        ArrayList<User> parents = new ArrayList<>();
+        Iterator<User> parentsIterator = userRecords.getValueIterator();
+        while (parentsIterator.hasNext()){
+            User currentChild = parentsIterator.next();
+            if(currentChild.getType().equals(User.Type.PARENT))
+                parents.add(currentChild);
+        }
+        return parents;
     }
     /**
      * Gets the user records in the form of a string
