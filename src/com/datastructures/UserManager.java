@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
-public class LoginManager {
+public class UserManager {
     private final DictionaryInterface<String, User> userRecords;
     private static final String fileName = "user_records.txt";
     private static Scanner data;
@@ -19,7 +19,7 @@ public class LoginManager {
 
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
-    public LoginManager() {
+    public UserManager() {
         userRecords = new SortedArrayDictionary<>();
         File file = new File(fileName);
         try {
@@ -101,9 +101,11 @@ public class LoginManager {
         Iterator<User> childrenIterator = userRecords.getValueIterator();
         while (childrenIterator.hasNext()){
             User currentChild = childrenIterator.next();
-            GradesManager manager = new GradesManager(currentChild.getUsername());
-            if(manager.getParentUsername().equals(parentUsername))
-                children.add(currentChild);
+            if(currentChild.getType() == User.Type.STUDENT) {
+                GradesManager manager = new GradesManager(currentChild.getUsername());
+                if (manager.getParentUsername().equals(parentUsername))
+                    children.add(currentChild);
+            }
         }
         return children;
     }

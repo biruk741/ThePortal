@@ -1,7 +1,6 @@
 package com.datastructures.screens;
 
 import com.datastructures.GradesManager;
-import com.datastructures.LoginManager;
 import com.datastructures.MainPortal;
 import com.datastructures.Objects.Grade;
 import com.datastructures.Objects.User;
@@ -29,7 +28,7 @@ public class StudentScreen extends MainPortal implements Screen {
                 }
             }
             case "2" ->{
-                ArrayList<User> parents = LOGIN_MANAGER.getParents();
+                ArrayList<User> parents = USER_MANAGER.getParents();
                 print("Enter the number beside the parent you would like to select.");
                 for(int index = 0;index<parents.size();index++){
                     print("_. _",index + 1,parents.get(index).getUsername());

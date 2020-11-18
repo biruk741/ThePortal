@@ -8,7 +8,7 @@ import com.datastructures.interfaces.Screen;
 import java.util.ArrayList;
 
 public class ParentScreen extends MainPortal implements Screen {
-    ArrayList<User> children = LOGIN_MANAGER.getChildren(user.getUsername());
+    ArrayList<User> children = USER_MANAGER.getChildren(user.getUsername());
     GradesManager gradesManager;
 
     public void main() {

@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class MainPortal {
     public static User user;
-    public static final LoginManager LOGIN_MANAGER = new LoginManager();
+    public static final UserManager USER_MANAGER = new UserManager();
     public static final Scanner scanner = new Scanner(System.in);
 
 
@@ -50,14 +50,14 @@ public class MainPortal {
     private static User signUp() {
         String type = requestData("type");
         String username = requestData("username");
-        if (LOGIN_MANAGER.userExists(username)) {
+        if (USER_MANAGER.userExists(username)) {
             print("This username has already been taken. Please try another one.");
             return signUp();
         }
         String password = requestData("password");
         User user = new User(username, password, type);
-        LOGIN_MANAGER.signUp(user);
-        return LOGIN_MANAGER.getUser(username);
+        USER_MANAGER.signUp(user);
+        return USER_MANAGER.getUser(username);
     }
     public static void logOut(){
         main(null);
@@ -107,16 +107,16 @@ public class MainPortal {
 
     private static User signIn() {
         String username = requestData("username");
-        if (!LOGIN_MANAGER.userExists(username)) {
+        if (!USER_MANAGER.userExists(username)) {
             print("User does not exist.");
             return signIn();
         }
         String password = requestData("password");
-        if (!LOGIN_MANAGER.isValid(username, password)) {
+        if (!USER_MANAGER.isValid(username, password)) {
             print("Username and password do not match.");
             return signIn();
         }
-        return LOGIN_MANAGER.getUser(username);
+        return USER_MANAGER.getUser(username);
     }
 
     public static void print(Object... s) {
