@@ -44,5 +44,5 @@ public class StudentScreen extends MainPortal implements Screen {
                 logOut();
             }
         }// add
-    }
+    }//lll
 }
