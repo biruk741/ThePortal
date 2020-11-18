@@ -73,7 +73,7 @@ public class MainPortal {
                     yield requestData(type);
                 }
                 yield input;
-            }
+            }//
             case "type" -> {
                 print("Are you a student, teacher, or parent? (Please enter one of these choices.)");
                 String input = scanner.next().toLowerCase();
