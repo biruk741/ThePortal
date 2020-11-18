@@ -43,6 +43,6 @@ public class StudentScreen extends MainPortal implements Screen {
                 print("Logging out...");
                 logOut();
             }
-        }
+        }// add
     }
 }
