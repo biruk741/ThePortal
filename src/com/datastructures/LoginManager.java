@@ -114,6 +114,7 @@ public class LoginManager {
             User currentChild = parentsIterator.next();
             if(currentChild.getType().equals(User.Type.PARENT))
                 parents.add(currentChild);
+            //
         }
         return parents;
     }
