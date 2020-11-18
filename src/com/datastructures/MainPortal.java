@@ -99,7 +99,7 @@ public class MainPortal {
                     yield requestData(type, numOfChoices);
                 }
             }
-            default -> "";
+            default -> scanner.next();
         };
     }
 
