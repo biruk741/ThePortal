@@ -59,6 +59,9 @@ public class MainPortal {
         LOGIN_MANAGER.signUp(user);
         return LOGIN_MANAGER.getUser(username);
     }
+    public static void logOut(){
+        main(null);
+    }
 
     public static String requestData(String type, int... numOfChoices) {
         return switch (type.toLowerCase()) {

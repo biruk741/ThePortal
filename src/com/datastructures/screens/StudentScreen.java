@@ -4,7 +4,10 @@ import com.datastructures.GradesManager;
 import com.datastructures.LoginManager;
 import com.datastructures.MainPortal;
 import com.datastructures.Objects.Grade;
+import com.datastructures.Objects.User;
 import com.datastructures.interfaces.Screen;
+
+import java.util.ArrayList;
 
 public class StudentScreen extends MainPortal implements Screen {
 
@@ -14,7 +17,7 @@ public class StudentScreen extends MainPortal implements Screen {
     GradesManager gradesManager = new GradesManager(user.getUsername());
 
     public void main() {
-        print("   Welcome, _. | (_)   Parent is:_ To begin, enter a number.   ",user.getUsername(),user.getType(),gradesManager.getParentUsername());
+        print("   Welcome, _. | (_)  Parent:_  To begin, enter a number.   ",user.getUsername(),user.getType(),gradesManager.getParentUsername());
         print("1. View your grades  2. Allow a parent to view your grades  3. Log out");
         switch (requestData("choice",3)){
             case "1" ->{
@@ -26,11 +29,19 @@ public class StudentScreen extends MainPortal implements Screen {
                 }
             }
             case "2" ->{
-                ArrayList<User> parents = gradesManager.getAllParents
-                print("_now has access to your grades.",user.getParent());
+                ArrayList<User> parents = LOGIN_MANAGER.getParents();
+                print("Enter the number beside the parent you would like to select.");
+                for(int index = 0;index<parents.size();index++){
+                    print("_. _",index + 1,parents.get(index).getUsername());
+                }
+                String choice = requestData("choice",parents.size());
+                User parent = parents.get(Integer.parseInt(choice) - 1);
+                gradesManager.setParent(parent.getUsername());
+                print("_ now has access to your grades.",parent.getUsername());
 
             }case "3" ->{
-
+                print("Logging out...");
+                logOut();
             }
         }
     }
