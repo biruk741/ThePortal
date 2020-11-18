@@ -7,6 +7,7 @@ import com.datastructures.interfaces.DictionaryInterface;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -94,7 +95,17 @@ public class LoginManager {
     public User getUser(String username) {
         return userRecords.getValue(username);
     }
-
+    public ArrayList<User> getChildren(String parentUsername){
+        ArrayList<User> children = new ArrayList<>();
+        Iterator<User> childrenIterator = userRecords.getValueIterator();
+        while (childrenIterator.hasNext()){
+            User currentChild = childrenIterator.next();
+            GradesManager manager = new GradesManager(currentChild.getUsername());
+            if(manager.getParentUsername().equals(parentUsername))
+                children.add(currentChild);
+        }
+        return children;
+    }
     /**
      * Gets the user records in the form of a string
      *

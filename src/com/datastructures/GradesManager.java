@@ -17,6 +17,7 @@ public class GradesManager {
     private static Scanner data;
     private static final String n = "\n";
     public static String fileName;
+    private String parentUsername = "none";
 
 
     @SuppressWarnings("ResultOfMethodCallIgnored")
@@ -37,6 +38,7 @@ public class GradesManager {
      * This method reads the file and updates the phonebook
      */
     public void readFile() {
+        if(data.hasNext()) parentUsername = data.next();
         while (data.hasNext()) {
             String name = data.next();
             String grade = data.next();
@@ -71,7 +73,7 @@ public class GradesManager {
     private String dictionaryToString(DictionaryInterface<String, Grade> dictionaryInterface) {
         Iterator<String> nameIterator = dictionaryInterface.getKeyIterator();
         Iterator<Grade> gradeIterator = dictionaryInterface.getValueIterator();
-        String s = "";
+        String s = parentUsername + n;
         while (nameIterator.hasNext()) {
             String currentName = nameIterator.next();
             Grade currentGrade = gradeIterator.next();
@@ -86,6 +88,15 @@ public class GradesManager {
 
     public void editGrade(String assignmentName, Grade newGrade){
         grades.add(assignmentName,newGrade);
+        saveFile();
+    }
+
+    public String getParentUsername() {
+        return parentUsername;
+    }
+
+    public void setParent(String parentUsername){
+        this.parentUsername = parentUsername;
         saveFile();
     }
 

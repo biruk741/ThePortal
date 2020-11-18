@@ -9,6 +9,7 @@ import com.datastructures.interfaces.Screen;
 public class StudentScreen extends MainPortal implements Screen {
 
     // Todo: Make sure to add comment feature.
+    // Todo: add age maybe
 
     GradesManager gradesManager = new GradesManager(user.getUsername());
 

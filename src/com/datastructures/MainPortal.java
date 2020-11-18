@@ -11,9 +11,8 @@ import java.util.Scanner;
 
 public class MainPortal {
     public static User user;
-    private static final LoginManager LOGIN_MANAGER = new LoginManager();
+    public static final LoginManager LOGIN_MANAGER = new LoginManager();
     public static final Scanner scanner = new Scanner(System.in);
-
 
 
     public static void main(String[] args) {
