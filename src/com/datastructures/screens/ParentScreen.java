@@ -14,8 +14,10 @@ public class ParentScreen extends MainPortal implements Screen {
     public void main() {
         print("   Welcome, _. | (_)  To begin, please select a child from the list below:   ", user.getUsername(), user.getType());
         print("1. View your children  2. Allow a parent to view your grades  3. Log out");
-        switch (requestData("choice", children.size())) {
-//            case
+        switch (requestData("choice", 3)) {
+            case "1" -> {
+
+            }
         }
     }
 }

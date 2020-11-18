@@ -82,12 +82,19 @@ public class MainPortal {
                     }
                 };
             }
-            case "choice"->{
-                int input = Integer.parseInt(scanner.next());
-                if(input <= numOfChoices[0] && input > 0) yield input + "";
-                else{
-                    print("Please enter a number between 1 and _",numOfChoices[0]);
-                    yield requestData(type,numOfChoices);}
+            case "choice" -> {
+                int input;
+                try {
+                    input = Integer.parseInt(scanner.next());
+                } catch (Exception e) {
+                    print("Please enter a number!");
+                    yield requestData(type, numOfChoices);
+                }
+                if (input <= numOfChoices[0] && input > 0) yield input + "";
+                else {
+                    print("Please enter a number between 1 and _", numOfChoices[0]);
+                    yield requestData(type, numOfChoices);
+                }
             }
             default -> "";
         };
