@@ -1,4 +1,4 @@
-package com.datastructures;
+package com.datastructures.interfaces;
 
 import java.util.Iterator;
 

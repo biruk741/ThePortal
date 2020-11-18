@@ -1,6 +1,6 @@
 package com.datastructures.Dictionaries;
 
-import com.datastructures.DictionaryInterface;
+import com.datastructures.interfaces.DictionaryInterface;
 
 import java.security.InvalidParameterException;
 

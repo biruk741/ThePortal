@@ -2,6 +2,7 @@ package com.datastructures;
 
 import com.datastructures.Dictionaries.SortedArrayDictionary;
 import com.datastructures.Objects.User;
+import com.datastructures.interfaces.DictionaryInterface;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -10,19 +11,20 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 public class LoginManager {
-    public final DictionaryInterface<String, User> userRecords;
-    public static final String fileName = "user_records.txt";
+    private final DictionaryInterface<String, User> userRecords;
+    private static final String fileName = "user_records.txt";
     private static Scanner data;
-    public static final String n = "\n";
+    private static final String n = "\n";
 
 
+    @SuppressWarnings("ResultOfMethodCallIgnored")
     public LoginManager() {
         userRecords = new SortedArrayDictionary<>();
         File file = new File(fileName);
         try {
             file.createNewFile();
             data = new Scanner(file);
-        } catch (Exception e) {
+        } catch (Exception ignored) {
             System.out.println("File could not be created.");
         }
         readFile();
@@ -36,7 +38,7 @@ public class LoginManager {
             String username = data.next();
             String password = data.next();
             String type = data.next();
-            userRecords.add(username,new User(username,password,type));
+            userRecords.add(username, new User(username, password, type));
         }
         data.close();
     }
@@ -57,17 +59,18 @@ public class LoginManager {
     public boolean signUp(User user) {
         if (userExists(user.getUsername())) {
             return false;
-        } else userRecords.add(user.getUsername(),user);
+        } else userRecords.add(user.getUsername(), user);
         saveFile();
         return true;
     }
 
-    public boolean userExists(String username){
+    public boolean userExists(String username) {
         return userRecords.contains(username);
     }
 
     /**
      * This method converts the dictionary object to a string that can be saved to the file.
+     *
      * @param dictionaryInterface: the dictionary object
      * @return the converted string.
      */
@@ -88,12 +91,13 @@ public class LoginManager {
         return password.equals(user.getPassword());
     }
 
-    public User getUser(String username){
+    public User getUser(String username) {
         return userRecords.getValue(username);
     }
 
     /**
      * Gets the user records in the form of a string
+     *
      * @return the string
      */
     @Override
