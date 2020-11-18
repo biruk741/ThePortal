@@ -31,20 +31,30 @@ public class TeacherScreen extends MainPortal implements Screen {
             case "2" -> {
                 User student = getStudent();
                 gradesManager = new GradesManager(student.getUsername());
-                print("Please enter the name of the assignment.");
+                print("Please enter the name of the assignment you want to add:");
                 String name = requestData("other");
 
-                print("Please enter the grade for the assignment.");
+                print("Please enter the grade for the assignment:");
                 String grade = requestData("other");
                 gradesManager.addGrade(new Grade(name, grade));
 
-                print("_ with grade _ was added to student _.", name, grade, student.getUsername());
-
+                print("The assignment _ with grade _ was added to student _.", name, grade, student.getUsername());
             } //end case 2
 
             case "3" -> {
+                User student = getStudent();
+                gradesManager = new GradesManager(student.getUsername());
 
+                print("Please enter the name of the assignment you want to change grade:");
+                String name = requestData("other");
+
+                print("Please enter the grade for the assignment:");
+                String grade = requestData("other");
+                gradesManager.editGrade(name, new Grade(name, grade));
+
+                print("The assignment _ of the student _ grade has been changed to _.", name, student.getUsername(), grade);
             } //end case
+
             case "4" -> {
 
             } //end case
