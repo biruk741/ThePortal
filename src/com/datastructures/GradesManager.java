@@ -91,6 +91,14 @@ public class GradesManager {
         saveFile();
     }
 
+    public double getAverage() {
+        double total = 0;
+        ArrayList<Grade> grades = getAllGrades();
+        for (Grade grade : grades)
+            total += Integer.parseInt(grade.getGrade());
+        return grades.size() != 0 ?  total / grades.size() : 0;
+    }
+
     public String getParentUsername() {
         return parentUsername;
     }
