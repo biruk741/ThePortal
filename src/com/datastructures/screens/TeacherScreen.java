@@ -53,11 +53,19 @@ public class TeacherScreen extends MainPortal implements Screen {
                 gradesManager.editGrade(name, new Grade(name, grade));
 
                 print("The assignment _ of the student _ grade has been changed to _.", name, student.getUsername(), grade);
-            } //end case
+            } //end case 3
 
             case "4" -> {
+                User student = getStudent();
+                gradesManager = new GradesManager(student.getUsername());
 
-            } //end case
+                print("Please enter the name of the assignment you want to remove grade:");
+                String name = requestData("other");
+
+                gradesManager.removeGrade(name);
+
+                print("The assignment _ of the student _ has been removed.", name, student.getUsername());
+            } //end case 4
 
             case "5" -> {
                 print("Logging out...");
