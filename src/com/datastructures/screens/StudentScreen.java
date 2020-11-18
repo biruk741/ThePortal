@@ -1,7 +1,7 @@
 package com.datastructures.screens;
 
-import com.datastructures.GradesManager;
 import com.datastructures.MainPortal;
+import com.datastructures.Managers.GradesManager;
 import com.datastructures.Objects.Grade;
 import com.datastructures.Objects.User;
 import com.datastructures.interfaces.Screen;
@@ -43,5 +43,6 @@ public class StudentScreen extends MainPortal implements Screen {
                 logOut();
             }
         }// add
+        main();
     }//lll
 }// add

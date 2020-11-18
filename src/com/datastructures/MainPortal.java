@@ -1,5 +1,6 @@
 package com.datastructures;
 
+import com.datastructures.Managers.UserManager;
 import com.datastructures.Objects.User;
 import com.datastructures.screens.ParentScreen;
 import com.datastructures.interfaces.Screen;
@@ -64,7 +65,7 @@ public class MainPortal {
     }
 
     public static String requestData(String type, int... numOfChoices) {
-        return switch (type.toLowerCase()) {
+        return (switch (type.toLowerCase()) {
             case "password", "username" -> {
                 print("Please enter your _:", type);
                 String input = scanner.next();
@@ -100,10 +101,8 @@ public class MainPortal {
                 }
             }
             default -> scanner.next();
-        };
+        }).trim().replaceAll(" ","_");
     }
-
-    // elena
 
     private static User signIn() {
         String username = requestData("username");
