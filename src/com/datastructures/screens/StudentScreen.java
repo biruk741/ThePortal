@@ -1,7 +1,6 @@
 package com.datastructures.screens;
 
-import com.datastructures.GradesManager;
-import com.datastructures.LoginManager;
+import com.datastructures.Managers.GradesManager;
 import com.datastructures.MainPortal;
 import com.datastructures.Objects.Grade;
 import com.datastructures.Objects.User;

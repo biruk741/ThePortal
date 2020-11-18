@@ -1,5 +1,6 @@
 package com.datastructures;
 
+import com.datastructures.Managers.LoginManager;
 import com.datastructures.Objects.User;
 import com.datastructures.screens.ParentScreen;
 import com.datastructures.interfaces.Screen;
@@ -73,7 +74,7 @@ public class MainPortal {
                     yield requestData(type);
                 }
                 yield input;
-            }//
+            }
             case "type" -> {
                 print("Are you a student, teacher, or parent? (Please enter one of these choices.)");
                 String input = scanner.next().toLowerCase();

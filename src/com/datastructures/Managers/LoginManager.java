@@ -1,4 +1,4 @@
-package com.datastructures;
+package com.datastructures.Managers;
 
 import com.datastructures.Dictionaries.SortedArrayDictionary;
 import com.datastructures.Objects.User;
