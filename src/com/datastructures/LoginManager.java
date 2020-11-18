@@ -57,7 +57,7 @@ public class LoginManager {
     }
 
     public boolean signUp(User user) {
-        if (userExists(user.getUsername())) {
+        if (userExists(user.getUsername())) {        // looks to see if the user name already exsits
             return false;
         } else userRecords.add(user.getUsername(), user);
         saveFile();

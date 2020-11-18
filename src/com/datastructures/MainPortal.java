@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainPortal {
-    static User user;
+    public static User user;
     private static final LoginManager LOGIN_MANAGER = new LoginManager();
     public static final Scanner scanner = new Scanner(System.in);
 
@@ -61,7 +61,7 @@ public class MainPortal {
         return LOGIN_MANAGER.getUser(username);
     }
 
-    public static String requestData(String type) {
+    public static String requestData(String type, int... numOfChoices) {
         return switch (type.toLowerCase()) {
             case "password", "username" -> {
                 print("Please enter your _:", type);
@@ -82,6 +82,13 @@ public class MainPortal {
                         yield requestData(type);
                     }
                 };
+            }
+            case "choice"->{
+                int input = Integer.parseInt(scanner.next());
+                if(input <= numOfChoices[0] && input > 0) yield input + "";
+                else{
+                    print("Please enter a number between 1 and _",numOfChoices[0]);
+                    yield requestData(type,numOfChoices);}
             }
             default -> "";
         };

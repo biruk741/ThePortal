@@ -2,9 +2,9 @@ package com.datastructures.Objects;
 
 public class Grade {
     String name;
-    int grade;
+    String grade;
 
-    public Grade(String name, int grade) {
+    public Grade(String name, String grade) {
         this.name = name;
         this.grade = grade;
     }
@@ -17,11 +17,11 @@ public class Grade {
         this.name = name;
     }
 
-    public int getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
 }
