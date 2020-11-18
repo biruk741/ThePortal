@@ -118,6 +118,16 @@ public class LoginManager {
         }
         return parents;
     }
+    public ArrayList<User> getStudents(){
+        ArrayList<User> students = new ArrayList<>();
+        Iterator<User> studentsIterator = userRecords.getValueIterator();
+        while (studentsIterator.hasNext()){
+            User currentStudent = studentsIterator.next();
+            if(currentStudent.getType().equals(User.Type.STUDENT))
+                students.add(currentStudent);
+        }
+        return students;
+    }
     /**
      * Gets the user records in the form of a string
      *
