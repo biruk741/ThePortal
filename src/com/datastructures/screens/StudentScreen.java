@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class StudentScreen extends MainPortal implements Screen {
 
     // Todo: Make sure to add comment feature.
-    // Todo: add age maybe
+    // Todo: add age maybe blah
 
     GradesManager gradesManager = new GradesManager(user.getUsername());
 
