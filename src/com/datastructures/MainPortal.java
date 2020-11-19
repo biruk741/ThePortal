@@ -180,7 +180,7 @@ public class MainPortal {
      * 2. prints a newline escape character/ "\n" by typing two spaces
      * 3. Puts in strings in place of "_". This makes it easier to concatenate or join many strings together.
      *
-     * @param string
+     * @param string: the string to which we will be inserting strings into, also the string to be finally printed.
      * @param toBeAdded: the strings that will be inserted into @param string
      */
     public static void print(Object string, Object... toBeAdded) {

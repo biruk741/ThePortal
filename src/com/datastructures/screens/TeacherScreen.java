@@ -55,7 +55,7 @@ public class TeacherScreen extends MainPortal implements Screen {
                 gradesManager = new GradesManager(student.getUsername());
 
                 for (Grade grade : gradesManager.getAllGrades()) {
-                    print("   _ - _", grade.getName(), grade.getGrade());
+                    print("_ - _", grade.getName(), grade.getGrade());
                 }
                 print("Please enter the name of the assignment you want to change grade:");
                 String name = requestData("other");
@@ -77,7 +77,7 @@ public class TeacherScreen extends MainPortal implements Screen {
                 gradesManager = new GradesManager(student.getUsername());
 
                 for (Grade grade : gradesManager.getAllGrades()) {
-                    print("   _ - _", grade.getName(), grade.getGrade());
+                    print("_ - _", grade.getName(), grade.getGrade());
                 }
                 print("Please enter the name of the assignment you want to remove grade:");
                 String name = requestData("other");
@@ -97,6 +97,8 @@ public class TeacherScreen extends MainPortal implements Screen {
                 logOut();
             }
         }
+        print("Please enter anything to continue...");
+        scanner.next();
         start();
     }
 

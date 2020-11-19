@@ -40,5 +40,8 @@ public class ParentScreen extends MainPortal implements Screen {
             }
             case "2" -> logOut();
         }
+        print("Please enter anything to continue...");
+        scanner.next();
+        start();
     }
 }

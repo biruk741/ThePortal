@@ -44,6 +44,8 @@ public class StudentScreen extends MainPortal implements Screen {
                 logOut();
             }
         }// add
+        print("Please enter anything to continue...");
+        scanner.next();
         start();
     }//lll
 }// add
