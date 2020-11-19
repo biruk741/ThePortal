@@ -18,10 +18,14 @@ public class ParentScreen extends MainPortal implements Screen {
      * Method that runs when the screen starts.
      */
     public void start() {
-        print("   Welcome, _. | (_)  To begin, please select an option from the list below:   ",user.getUsername(), user.getType());
+        print("   Welcome, _. | (_)  To begin, please select an option from the list below:   ", user.getUsername(), user.getType());
         print("1. View your children's grades  2. Log out");
         switch (requestData("choice", 2)) {
             case "1" -> {
+                if (children.size() == 0) {
+                    print("You dont have any children registered at this time.");
+                    break;
+                }
                 int number = 1;
                 for (User student : children) {
                     print("_. _", number, student.getUsername());
@@ -36,7 +40,7 @@ public class ParentScreen extends MainPortal implements Screen {
                 for (Grade grade : gradesManager.getAllGrades()) {
                     print("   _ - _ ", grade.getName(), grade.getGrade());
                 }
-                print("Average: _",gradesManager.getAverage());
+                print("Average: _", gradesManager.getAverage());
             }
             case "2" -> logOut();
         }

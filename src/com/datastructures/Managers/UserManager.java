@@ -56,7 +56,8 @@ public class UserManager {
             String username = data.next();
             String password = data.next();
             String type = data.next();
-            userRecords.add(username, new User(username, password, type));
+            String year = data.next();
+            userRecords.add(username, new User(username, password, type,year));
         }
         data.close();
     }
@@ -110,7 +111,7 @@ public class UserManager {
         while (usernameIterator.hasNext()) {
             String currentUsername = usernameIterator.next();
             User currentUser = userIterator.next();
-            s += currentUsername + " " + currentUser.getPassword() + " " + currentUser.getType().toString() + n;
+            s += currentUsername + " " + currentUser.getPassword() + " " + currentUser.getType().toString()  + " " + currentUser.getYear()+ n;
         }
         return s;
     }
@@ -175,12 +176,12 @@ public class UserManager {
      * Gets all students stored in the database.
      * @return a list of students.
      */
-    public ArrayList<User> getStudents() {
+    public ArrayList<User> getStudents(String year) {
         ArrayList<User> students = new ArrayList<>();
         Iterator<User> studentsIterator = userRecords.getValueIterator();
         while (studentsIterator.hasNext()) {
             User currentStudent = studentsIterator.next();
-            if (currentStudent.getType().equals(User.Type.STUDENT))
+            if (currentStudent.getType().equals(User.Type.STUDENT) && currentStudent.getYear().equals(year))
                 students.add(currentStudent);
         }
         return students;

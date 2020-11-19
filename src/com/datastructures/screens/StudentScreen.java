@@ -16,7 +16,7 @@ public class StudentScreen extends MainPortal implements Screen {
      * Method that runs when the screen starts.
      */
     public void start() {
-        print("   Welcome, _. | (_)  Parent: _  To begin, enter a number.   ",user.getUsername(),user.getType(),gradesManager.getParentUsername());
+        print("   Welcome, _. | (_ _)  Parent: _  To begin, enter a number.   ",user.getUsername(),user.getYear(),user.getType(),gradesManager.getParentUsername());
         print("1. View your grades  2. Allow a parent to view your grades  3. Log out");
         switch (requestData("choice",3)){
             case "1" ->{

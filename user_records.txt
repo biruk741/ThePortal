@@ -1,9 +1,12 @@
-StevenCollazos imthebestmathteacher Teacher
-biruksdad imliterallyadad Parent
-biruk 5597941 Student
-elena csciteacher Teacher
-elenalam Thientu1502 Student
-hussam csciteacher Teacher
-myahartman birukisgreat Student
-myasmom livelaughlove Parent
-elenasmom imhermom Parent
+StevenCollazos imthebestmathteacher Teacher Freshman
+biruk 5597941 Student Sophomore
+biruksdad imliterallyadad Parent N/A
+elena csciteacher Teacher Junior
+elenalam Thientu1502 Student Sophomore
+elenasmom imhermom Parent N/A
+hussam csciteacher Teacher Sophomore
+myahartman birukisgreat Student Junior
+myasmom livelaughlove Parent N/A
+peterdolan impeterdolan Teacher Senior
+vantou imvantou Student Senior
+vantousmom imvantousmom Parent N/A

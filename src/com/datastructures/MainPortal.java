@@ -76,13 +76,20 @@ public class MainPortal {
      */
     private static User signUp() {
         String type = requestData("type");
+        String choice = "N/A";
+
+        if (type.toLowerCase().equals("student"))
+            choice = requestData("year");
+        else if (type.toLowerCase().equals("teacher"))
+            choice = requestData("year");
+
         String username = requestData("username");
         if (USER_MANAGER.userExists(username)) {
             print("This username has already been taken. Please try another one.");
             return signUp();
         }
         String password = requestData("password");
-        User user = new User(username, password, type);
+        User user = new User(username, password, type, choice);
         USER_MANAGER.signUp(user);
         return USER_MANAGER.getUser(username);
     }
@@ -147,6 +154,20 @@ public class MainPortal {
                     yield requestData(type, numOfChoices);
                 }
             }
+            case "year" -> {
+                print("Please select your year from the choices below:");
+                print("1. Freshman  2. Sophomore  3. Junior  4. Senior");
+                yield switch (scanner.next()) {
+                    case "1" -> "Freshman";
+                    case "2" -> "Sophomore";
+                    case "3" -> "Junior";
+                    case "4" -> "Senior";
+                    default -> {
+                        print("Please select from the options below!");
+                        yield requestData(type);
+                    }
+                };
+            }
             default -> scanner.next(); // All other requests
         })
                 .trim()
@@ -180,7 +201,7 @@ public class MainPortal {
      * 2. prints a newline escape character/ "\n" by typing two spaces
      * 3. Puts in strings in place of "_". This makes it easier to concatenate or join many strings together.
      *
-     * @param string: the string to which we will be inserting strings into, also the string to be finally printed.
+     * @param string:    the string to which we will be inserting strings into, also the string to be finally printed.
      * @param toBeAdded: the strings that will be inserted into @param string
      */
     public static void print(Object string, Object... toBeAdded) {

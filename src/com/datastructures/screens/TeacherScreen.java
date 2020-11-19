@@ -18,7 +18,7 @@ public class TeacherScreen extends MainPortal implements Screen {
      * Method that runs when the screen starts.
      */
     public void start() {
-        print("   Welcome, _. | (_)  To begin, please select a number.   ", user.getUsername(), user.getType());
+        print("   Welcome, _. | (_ _)  To begin, please select a number.   ", user.getUsername(),user.getYear(), user.getType());
         print("1. View student grades  2. Add grades  3. Change grades  4. Remove grades  5. Log out");
 
         switch (requestData("choice", 5)) {
@@ -107,7 +107,7 @@ public class TeacherScreen extends MainPortal implements Screen {
      * @return the selected student
      */
     private static User getStudent() {
-        ArrayList<User> students = USER_MANAGER.getStudents();
+        ArrayList<User> students = USER_MANAGER.getStudents(user.getYear());
 
         print("   ");
         for (int i = 0;i < students.size();i++)
