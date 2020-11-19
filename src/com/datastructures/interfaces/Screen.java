@@ -1,5 +1,8 @@
 package com.datastructures.interfaces;
 
 public interface Screen {
-    void main();
+    /**
+     * This is the method that runs when the Screen is launched
+     */
+    void start();
 }

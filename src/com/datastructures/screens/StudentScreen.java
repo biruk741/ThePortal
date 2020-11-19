@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class StudentScreen extends MainPortal implements Screen {
 
-    // Todo: Make sure to add comment feature.
-    // Todo: add age maybe blah
-
     GradesManager gradesManager = new GradesManager(user.getUsername());
 
-    public void main() {
-        print("   Welcome, _. | (_)  Parent:_  To begin, enter a number.   ",user.getUsername(),user.getType(),gradesManager.getParentUsername());
+    /**
+     * Method that runs when the screen starts.
+     */
+    public void start() {
+        print("   Welcome, _. | (_)  Parent: _  To begin, enter a number.   ",user.getUsername(),user.getType(),gradesManager.getParentUsername());
         print("1. View your grades  2. Allow a parent to view your grades  3. Log out");
         switch (requestData("choice",3)){
             case "1" ->{
@@ -26,6 +26,7 @@ public class StudentScreen extends MainPortal implements Screen {
                     print("_. _ _",number,grade.getName(),grade.getGrade());
                     number++;
                 }
+                print("Average: _",gradesManager.getAverage());
             }
             case "2" ->{
                 ArrayList<User> parents = USER_MANAGER.getParents();
@@ -43,6 +44,6 @@ public class StudentScreen extends MainPortal implements Screen {
                 logOut();
             }
         }// add
-        main();
+        start();
     }//lll
 }// add
