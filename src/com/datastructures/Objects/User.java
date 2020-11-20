@@ -98,7 +98,6 @@ public class User {
      * @return the appropriate <code>Year</code> enum
      */
     public static Year parseYear(String s){
-        System.out.println(s);
         return switch (s.toLowerCase().trim()) {
             case "freshman" -> User.Year.FRESHMAN;
             case "sophomore" -> User.Year.SOPHOMORE;

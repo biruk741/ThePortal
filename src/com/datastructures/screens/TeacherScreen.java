@@ -13,7 +13,6 @@ public class TeacherScreen extends MainPortal implements Screen {
     // The managing class for all grade related tasks
     GradesManager gradesManager;
 
-
     /**
      * Method that runs when the screen starts.
      */
