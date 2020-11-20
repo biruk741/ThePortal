@@ -1,13 +1,13 @@
 package com.datastructures.Managers;
 
-import com.datastructures.Dictionaries.SortedArrayDictionary;
+import com.datastructures.DataStructures.SortedArrayDictionary;
 import com.datastructures.Objects.User;
+import com.datastructures.DataStructures.ArrayList;
 import com.datastructures.interfaces.DictionaryInterface;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
 
@@ -57,7 +57,7 @@ public class UserManager {
             String password = data.next();
             String type = data.next();
             String year = data.next();
-            userRecords.add(username, new User(username, password, type,year));
+            userRecords.add(username, new User(username, password, type, User.parseYear(year)));
         }
         data.close();
     }
@@ -91,6 +91,7 @@ public class UserManager {
 
     /**
      * Checks whether or not a user exists in the database.
+     *
      * @param username: the username that we will be checking for
      * @return whether or not the user exists.
      */
@@ -111,15 +112,16 @@ public class UserManager {
         while (usernameIterator.hasNext()) {
             String currentUsername = usernameIterator.next();
             User currentUser = userIterator.next();
-            s += currentUsername + " " + currentUser.getPassword() + " " + currentUser.getType().toString()  + " " + currentUser.getYear()+ n;
+            s += currentUsername + " " + currentUser.getPassword() + " " + currentUser.getType().toString() + " " + currentUser.getYear().toString() + n;
         }
         return s;
     }
 
     /**
      * Checks if a given username password combination is valid.
+     *
      * @param username: username  that we will be checking.
-     * @param password password that we will be checking.
+     * @param password  password that we will be checking.
      * @return whether or not the combo is valid.
      */
     public boolean isValid(String username, String password) {
@@ -129,6 +131,7 @@ public class UserManager {
 
     /**
      * Gets a user object when given a username
+     *
      * @param username: username of the user we want to fetch.
      * @return the user object.
      */
@@ -138,6 +141,7 @@ public class UserManager {
 
     /**
      * Gets all children for a given parent.
+     *
      * @param parentUsername: the username of the parent.
      * @return a list of the children.
      */
@@ -158,6 +162,7 @@ public class UserManager {
 
     /**
      * Gets all parents stored in the file.
+     *
      * @return a list of the parents.
      */
     public ArrayList<User> getParents() {
@@ -174,9 +179,10 @@ public class UserManager {
 
     /**
      * Gets all students stored in the database.
+     *
      * @return a list of students.
      */
-    public ArrayList<User> getStudents(String year) {
+    public ArrayList<User> getStudents(User.Year year) {
         ArrayList<User> students = new ArrayList<>();
         Iterator<User> studentsIterator = userRecords.getValueIterator();
         while (studentsIterator.hasNext()) {

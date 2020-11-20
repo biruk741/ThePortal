@@ -5,6 +5,7 @@ elena csciteacher Teacher Junior
 elenalam Thientu1502 Student Sophomore
 elenasmom imhermom Parent N/A
 hussam csciteacher Teacher Sophomore
+mrbean immrbean Teacher Freshman
 myahartman birukisgreat Student Junior
 myasmom livelaughlove Parent N/A
 peterdolan impeterdolan Teacher Senior

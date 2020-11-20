@@ -1,4 +1,4 @@
-package com.datastructures.Dictionaries;
+package com.datastructures.DataStructures;
 
 import com.datastructures.interfaces.DictionaryInterface;
 

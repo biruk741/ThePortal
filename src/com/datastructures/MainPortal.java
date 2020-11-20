@@ -76,12 +76,12 @@ public class MainPortal {
      */
     private static User signUp() {
         String type = requestData("type");
-        String choice = "N/A";
+        String year = "N/A";
 
         if (type.toLowerCase().equals("student"))
-            choice = requestData("year");
+            year = requestData("year");
         else if (type.toLowerCase().equals("teacher"))
-            choice = requestData("year");
+            year = requestData("year");
 
         String username = requestData("username");
         if (USER_MANAGER.userExists(username)) {
@@ -89,7 +89,7 @@ public class MainPortal {
             return signUp();
         }
         String password = requestData("password");
-        User user = new User(username, password, type, choice);
+        User user = new User(username, password, type, User.parseYear(year));
         USER_MANAGER.signUp(user);
         return USER_MANAGER.getUser(username);
     }

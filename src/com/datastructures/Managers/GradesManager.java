@@ -1,8 +1,7 @@
 package com.datastructures.Managers;
 
-import com.datastructures.Dictionaries.SortedArrayDictionary;
+import com.datastructures.DataStructures.SortedArrayDictionary;
 import com.datastructures.Objects.Grade;
-import com.datastructures.Objects.User;
 import com.datastructures.interfaces.DictionaryInterface;
 
 import java.io.File;

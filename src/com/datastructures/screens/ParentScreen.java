@@ -4,9 +4,9 @@ import com.datastructures.Managers.GradesManager;
 import com.datastructures.MainPortal;
 import com.datastructures.Objects.Grade;
 import com.datastructures.Objects.User;
+import com.datastructures.DataStructures.ArrayList;
 import com.datastructures.interfaces.Screen;
 
-import java.util.ArrayList;
 
 public class ParentScreen extends MainPortal implements Screen {
     // List of children for the given parent.
@@ -38,7 +38,7 @@ public class ParentScreen extends MainPortal implements Screen {
                 User child = children.get(choice - 1);
                 gradesManager = new GradesManager(child.getUsername());
                 for (Grade grade : gradesManager.getAllGrades()) {
-                    print("   _ - _ ", grade.getName(), grade.getGrade());
+                    print("_ - _ ", grade.getName(), grade.getGrade());
                 }
                 print("Average: _", gradesManager.getAverage());
             }

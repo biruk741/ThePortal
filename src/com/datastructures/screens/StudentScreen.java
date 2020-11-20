@@ -1,12 +1,11 @@
 package com.datastructures.screens;
 
+import com.datastructures.DataStructures.ArrayList;
 import com.datastructures.MainPortal;
 import com.datastructures.Managers.GradesManager;
 import com.datastructures.Objects.Grade;
 import com.datastructures.Objects.User;
 import com.datastructures.interfaces.Screen;
-
-import java.util.ArrayList;
 
 public class StudentScreen extends MainPortal implements Screen {
 
