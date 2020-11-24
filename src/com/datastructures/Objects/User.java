@@ -1,12 +1,13 @@
 package com.datastructures.Objects;
 
 public class User {
-
     /**
      * An enum that encompasses all the different types of users.
      */
     public enum Type {
-        STUDENT("Student"), TEACHER("Teacher"), PARENT("Parent");
+        STUDENT("Student"),
+        TEACHER("Teacher"),
+        PARENT("Parent");
 
         private final String value;
 
@@ -20,8 +21,9 @@ public class User {
     }
 
     public enum Year {
-        FRESHMAN("Freshman"), SOPHOMORE("Sophomore"), JUNIOR("Junior")
-        , SENIOR("Senior"),NOT_APPLICABLE("N/A");
+        FRESHMAN("Freshman"), SOPHOMORE("Sophomore"),
+        JUNIOR  ("Junior"  ), SENIOR   ("Senior"   ),
+        NOT_APPLICABLE("N/A");
 
         private final String value;
 
@@ -34,6 +36,7 @@ public class User {
         }
     }
 
+    // Data fields, constructors and setter and getter methods...
     String username;
     String password;
     Type type;
@@ -54,7 +57,7 @@ public class User {
     public User(String username, String password, String type,Year year) {
         this( username, password, switch (type.toLowerCase()) {
             case "teacher" -> Type.TEACHER;
-            case "parent" -> Type.PARENT;
+            case "parent"  -> Type.PARENT;
             default -> Type.STUDENT;
         },year);
     }

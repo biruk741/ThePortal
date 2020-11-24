@@ -27,7 +27,6 @@ public class MainPortal {
     // The scanner that will be receiving input from the user.
     public static final Scanner scanner = new Scanner(System.in);
 
-
     // main method
     public static void main(String[] args) {
         print("   Welcome to the student portal.   ");
@@ -41,7 +40,7 @@ public class MainPortal {
         Screen currentScreen = switch (user.getType()) {
             case TEACHER -> new TeacherScreen();
             case STUDENT -> new StudentScreen();
-            case PARENT -> new ParentScreen();
+            case PARENT  -> new ParentScreen();
         };
 
         // Start the screen
